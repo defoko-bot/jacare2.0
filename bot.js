@@ -130,7 +130,7 @@ bot.on("message", async (msg) =>{
             msg.channel.send(helpp)
         break;
         case 'say':
-            if(args.length = 1) return msg.channel.send(`nada pra falar?`)
+            if(args.length < 1) return msg.channel.send(`nada pra falar?`)
             if(msg.deletable) msg.delete();
             msg.channel.send(args.slice(1).join(" "))
         break;
