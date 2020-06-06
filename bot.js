@@ -122,6 +122,10 @@ bot.on("message", async (msg) =>{
             msg.guild.channels.create(`${args[1]}`, {type:'voice'})
             msg.channel.send(`Canal de voz com nome ${args[1]} criado com sucesso`)
         break;
+        case 'help':
+            const helpp = new discord.MessageEmbed()
+            .setTitle(`ajuda`)
+            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position:\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacareunban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero`)
     }
 });
  
