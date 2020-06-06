@@ -14,8 +14,9 @@ bot.on("message", async (msg) =>{
 
     switch(comando){
         case 'meu':
+            if(args.length < 2) return msg.channel.send(`meu chapa precisamos de algo para ser nosso`)
             const cumunismo = new discord.MessageEmbed()
-            .setTitle(`nosso ${args[1]}`)
+            .setTitle(`nosso ${args.slice(1).join(" ")}`)
             .attachFiles('./nazistinhademerda.png')
             .setImage('attachment://nazistinhademerda.png');
             msg.channel.send(cumunismo)
@@ -126,7 +127,7 @@ bot.on("message", async (msg) =>{
         case 'help':
             const helpp = new discord.MessageEmbed()
             .setTitle(`ajuda`)
-            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position:\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (paradino#3151)`)
+            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare say <coisa> - fala algo\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position:\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (paradino#3151)`)
             msg.channel.send(helpp)
         break;
         case 'say':
