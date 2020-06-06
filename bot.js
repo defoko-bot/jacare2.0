@@ -51,6 +51,7 @@ bot.on("message", async (msg) =>{
             .attachFiles(`./bjo.gif`)
             .setImage('attachment://bjo.gif')
             msg.channel.send(bejo)
+        break;
         case 'ban':
             let autorban = msg.author.tag;
             let banserver = msg.guild;
