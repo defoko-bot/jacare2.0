@@ -175,6 +175,10 @@ bot.on("message", async (msg) =>{
             if(msg.deletable) msg.delete();
             msg.channel.send(args.slice(1).join(" "))
         break;
+        case 'list':
+            if(!msg.author.id === "600800448198344881") return;
+            msg.author.send(`Todas as sabiaspalavras: ${sabio}`)
+            console.log(`lista das sabias palavras pedida`)
      }
 });
  
