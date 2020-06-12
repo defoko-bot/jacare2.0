@@ -37,7 +37,7 @@ bot.on("message", async (msg) =>{
         break;
         case "monedita":
             const numerorandomae = Math.round(Math.random() * 2)
-            let moedaa;
+            let moedaa = "Cara";
             if(numerorandomae == 1) moedaa = "Cara";
             if(numerorandomae == 2) moedaa = "Coroa";
             console.log(`Monedita ${numerorandomae}`)
