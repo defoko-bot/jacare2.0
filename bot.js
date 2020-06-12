@@ -158,7 +158,7 @@ bot.on("message", async (msg) =>{
             if(numero > 100) return msg.channel.send(`${msg.author} numero mto grande, pf apenas entre 3 e 100`)
             if(numero < 3) return msg.channel.send(`${msg.author} numero pequeno dms, se for esse numero melhor usar o \`jacare monedita\``)
             if(numero > 99) random = Math.floor(Math.random() * numero);
-            else let random = Math.round(Math.random() * numero);
+            else random = Math.round(Math.random() * numero);
             if(random == 0) random = 1;
             console.log(`Dado invocado: ${random}`)
             msg.channel.send(`${msg.author} dado saiu ${random}`)
