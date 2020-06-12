@@ -1,7 +1,8 @@
 const discord= require("discord.js")
 const bot = new discord.Client();
 const prefix = "jacare ";
-
+const geral = require('./geral.json/')
+const sabio = geral.sabio
 bot.on("ready", () => {
     console.log('to vivo caraio aaaaaaaaa')
     bot.user.setActivity(`existindo [padero]`)
@@ -22,9 +23,8 @@ bot.on("message", async (msg) =>{
             msg.channel.send(cumunismo)
         break;
         case 'sabiaspalavras':
-            const aummm = ['palhaço gozo?', 'ahuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuummm', 'Me jogue aos lobos, e eu voltarei furry :pensive:', 'TKF EVENTOS  TKF EVENTOS TKF EVENTOS   TKF EVENTOS TKF EVENTOS TKF EVENTOS TKF EVENTOS', 'y', '', '', ':tfk1:', ']', 'hewwo', 'i am the gun, i schüt bulleeet', 'queimei a canela no escapamento do moto taxi', 'meu tio no banero', 'comofazer beringela', 'partilhas com o gozão?',]
-            let randomica = Math.floor(Math.random() * aummm.length)
-            msg.channel.send(`${aummm[randomica]}`)
+            let randomica = Math.floor(Math.random() * sabio.length)
+            msg.channel.send(`${sabio[randomica]}`)
         break;
         case 'vailuan':
             msg.channel.send(process.env.vailuan) //temos crianças aqui
@@ -38,7 +38,6 @@ bot.on("message", async (msg) =>{
         case 'ship':
             if(!args[1]) return msg.channel.send(`menciona alguem pra shipar caraio`) 
             if(!args[2]) return msg.channel.send(`menciona alguem pra ser shipado caraio`)
-            const ship = ['0% nem fudendo que isso vai existir', '10% meh muito provavelmente nunca', '20% meh provavelmente nunca', '30% hmmmm ainda meh mas talvez', '40% hmmm talvez', '50% amigos mas pode acontecer', '60% hmmm to vendo algo chegando', '70% uiiii talvez casal novo?', '80% casados com certeza :lenyfamse:', '90% casal melhor impossível', '100% já são casados :heart:']
             const randship = Math.floor(Math.random() * ship.length)
             const shipp = new discord.MessageEmbed()
             .setTitle(`as chances do casal ${args[1]} com ${args[2]} éééééééé`)
@@ -65,12 +64,12 @@ bot.on("message", async (msg) =>{
             if(!args[2]) return msg.reply(` da um motivo pro ban pls`);
             let banembed = new discord.MessageEmbed()
             .setTitle("Ser umano :banido:", 'https://cdn.discordapp.com/emojis/587031845120507923.png?v=1')
-            .setDescription(`Ser umano chamado ${alvo} ${alvo.id} :banido: Motivo: ${args[2]}`)
+            .setDescription(`Ser umano chamado ${alvo} ${alvo.id} :banido: Motivo: ${args.slice(2).join(" ")}`)
             .setColor('#ff0000')
             .setThumbnail(alvo.avatarURL)
             .setFooter(`Banido por ${autorban}`)
             msg.channel.send(banembed);
-            alvo.send(`Vose foi :banidor: de ${banserver} pelo ${autorban} \nMotivo: ${args[2]}`);
+            alvo.send(`Vose foi :banidor: de ${banserver} pelo ${autorban} \nMotivo: ${args.slice(2).join(" ")}`);
             alvo.ban(args[2]);
         break;
         case 'unban':
@@ -100,13 +99,13 @@ bot.on("message", async (msg) =>{
             if(!args[2]) return msg.reply(` pfvr de um motivo pro kick`);
             let kick = new discord.MessageEmbed()
             .setTitle("Ser umano :kickado:")
-            .setDescription(`Ser umano chamado ${alvooo} ${alvooo.id} foi kickado \nMotivo: ${args[2]}`)
+            .setDescription(`Ser umano chamado ${alvooo} ${alvooo.id} foi kickado \nMotivo: ${args.slice(2).join(" ")}`)
             .setColor('#ff0000')
             .setThumbnail(alvooo.avatarURL)
             .setFooter(`Kickado por ${autorkick}`)
             msg.channel.send(kick)
-            alvooo.send(`Vose foi kickado do servidor ${kickserver} pelo ${autorkick}\nMotivo: ${args[2]}`)
-            alvooo.kick(args[2])
+            alvooo.send(`Vose foi kickado do servidor ${kickserver} pelo ${autorkick}\nMotivo: ${args.slice(2).join(" ")}`)
+            alvooo.kick(args.slice(2).join(" "))
         break;
         case 'createtext':
             if(!msg.member.hasPermission('MANAGE_CHANNELS' || 'ADMINISTRATOR')) return msg.channel.send(`${msg.author} vc n pode fazer isso`)
@@ -127,7 +126,7 @@ bot.on("message", async (msg) =>{
         case 'help':
             const helpp = new discord.MessageEmbed()
             .setTitle(`ajuda`)
-            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare say <coisa> - fala algo\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position:\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (paradino#3151)`)
+            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare say <coisa> - fala algo\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position: ${sabio.length} sabias palavras unicas\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (paradino#3151)`)
             msg.channel.send(helpp)
         break;
         case 'say':
