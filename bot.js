@@ -155,7 +155,7 @@ bot.on("message", async (msg) =>{
             let numero = args[1]
             if(!numero || isNaN(numero) || numero <= 0) return msg.channel.send(`${msg.author} numero invalido carai`)
             if(numero > 100) return msg.channel.send(`${msg.author} numero mto grande, pf apenas entre 3 e 100`)
-            if(numero < 3) return msg.channel.send(`${msg.author} numero pequeno dms, se for esse numero melhor usar o \`le monedita\``)
+            if(numero < 3) return msg.channel.send(`${msg.author} numero pequeno dms, se for esse numero melhor usar o \`jacare monedita\``)
             let random = Math.floor(Math.random() * numero);
             if(random == 0) random = 1;
             console.log(`Dado invocado: ${random}`)
