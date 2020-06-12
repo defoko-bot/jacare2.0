@@ -25,6 +25,7 @@ bot.on("message", async (msg) =>{
         break;
         case 'sabiaspalavras':
             let randomica = Math.floor(Math.random() * sabio.length)
+            const wrdrandom = sabio[randomica]
             const sbColor = Math.floor(Math.random()*16777215).toString(16);
             const wrdembed = new discord.MessageEmbed()
             .setColor(`#${sbColor}`)
