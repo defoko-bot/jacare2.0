@@ -160,6 +160,7 @@ bot.on("message", async (msg) =>{
             if(random == 0) random = 1;
             console.log(`Dado invocado: ${random}`)
             msg.channel.send(`${msg.author} dado saiu ${random}`)
+        break;
         case 'help':
             const helpp = new discord.MessageEmbed()
             .setTitle(`ajuda`)
