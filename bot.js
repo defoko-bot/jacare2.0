@@ -42,7 +42,7 @@ bot.on("message", async (msg) =>{
             if(numerorandomae == 2) moedaa = "Coroa";
             console.log(`Monedita ${numerorandomae}`)
             const moneditaColor = Math.floor(Math.random()*16777215).toString(16);
-            const flipcoin = new MessageEmbed()
+            const flipcoin = new discord.MessageEmbed()
             .setColor(`#${moneditaColor}`)
             .setTitle(`Monetita ao ar deu...`)
             .setDescription(`${moedaa}`)
