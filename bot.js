@@ -1,4 +1,4 @@
-const discord= require("discord.js")
+const discord = require("discord.js")
 const bot = new discord.Client();
 const prefix = "jacare ";
 const geral = require('./geral.json')
@@ -24,10 +24,37 @@ bot.on("message", async (msg) =>{
         break;
         case 'sabiaspalavras':
             let randomica = Math.floor(Math.random() * sabio.length)
-            msg.channel.send(`${sabio[randomica]}`)
+            const sbColor = Math.floor(Math.random()*16777215).toString(16);
+            const wrdembed = new discord.MessageEmbed()
+            .setColor(`#${sbColor}`)
+            .setTitle(`Sua palavra sagrada éééé...`)
+            .setDescription(`${wrdrandom}`);
+            msg.channel.send(wrdembed)
         break;
         case 'vailuan':
             msg.channel.send(process.env.vailuan) //temos crianças aqui
+        break;
+        case "monedita":
+            const numerorandomae = Math.round(Math.random() * 2)
+            let moedaa;
+            if(numerorandomae == 1) moedaa = "Cara";
+            if(numerorandomae == 2) moedaa = "Coroa";
+            console.log(`Monedita ${numerorandomae}`)
+            const moneditaColor = Math.floor(Math.random()*16777215).toString(16);
+            const flipcoin = new MessageEmbed()
+            .setColor(`#${moneditaColor}`)
+            .setTitle(`Monetita ao ar deu...`)
+            .setDescription(`${moedaa}`)
+            msg.channel.send(flipcoin)
+        break;
+        case "cancelar":
+            const pessoacancelada = msg.mentions.members.first();
+            if(!pessoacancelada) return msg.channel.send(`${msg.author} menciona alguem pra ser cancelado meu filho`)
+            if(pessoacancelada == msg.guild.me) return msg.channel.send(`${msg.author} vsf`)
+            if(pessoacancelada == msg.author.id) return msg.channel.send(`${msg.author} vc é uma pessoa linda dms pra ser cancelada o demencia`)
+            const cancelrandomico = cancelado[Math.floor(Math.random() * cancelado.length)]
+            msg.channel.send(`${pessoacancelada} foi cancelado(a) ${cancelrandomico}`)
+            console.log(`Pessoa ${pessoacancelada} foi cancelado(a) ${cancelrandomico}`)
         break;
         case 'salve':
             msg.channel.send(`${msg.author} manda salve :pray:`)
@@ -123,10 +150,19 @@ bot.on("message", async (msg) =>{
             msg.guild.channels.create(`${args[1]}`, {type:'voice'})
             msg.channel.send(`Canal de voz com nome ${args[1]} criado com sucesso`)
         break;
+        case "dado":
+            let numero = args[1]
+            if(!numero || isNaN(numero) || numero <= 0) return msg.channel.send(`${msg.author} numero invalido carai`)
+            if(numero > 100) return msg.channel.send(`${msg.author} numero mto grande, pf apenas entre 3 e 100`)
+            if(numero < 3) return msg.channel.send(`${msg.author} numero pequeno dms, se for esse numero melhor usar o \`le monedita\``)
+            let random = Math.floor(Math.random() * numero);
+            if(random == 0) random = 1;
+            console.log(`Dado invocado: ${random}`)
+            msg.channel.send(`${msg.author} dado saiu ${random}`)
         case 'help':
             const helpp = new discord.MessageEmbed()
             .setTitle(`ajuda`)
-            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare say <coisa> - fala algo\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position: ${sabio.length} sabias palavras unicas\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\n\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=52246&scope=bot\nMinha pg do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (paradino#3151)`)
+            .setDescription(`prefixo: jacare (com espaço no final tipo jacare help)\njacare say <coisa> - fala algo\njacare monedita - joga uma monedita ao ar pra ver se sai cara ou coroa\njacare dado <numero de 3 a 100> - joga um dado\njacare ship <coisarandom1> <coisarandom2> - shippa duas coisas ou pessoas\n jacare kiss <pessoa> - beija alguem\njacare meu <qualquercoisa> - nossa coisa (comunismo intensifies)\njacare sabiaspalavras - aummmmmmm :person_in_lotus_position: ${sabio.length} sabias palavras unicas\njacare salve - salve mermão\n jacare vailuan - vai luan\njacare piririm - o classico piririm\njacare ban <retardado> motivo - (acho q n ta funfando, melhor n usar, apenas para usuarios q podem banir ou com perm de administrador)\njacare kick <retardado> <motivo> (mesma coisa do de cima, apenas para q podem kickar/perm de administrador)\njacare unban <pessoa> <motivo> (tbm o de cima)\njacare createtext <nome de canal> (perms: gerenciar canais/administrador) - cria um canal de texto\njacare createvoice <nome de canal> (perms: gerenciar canais/administrador) - cria um canal de voz\nMe adicione! https://discord.com/api/oauth2/authorize?client_id=718602386251448402&permissions=85014&scope=bot\nMeu repo do github: https://github.com/defoko-bot/jacare2.0/ \n -padero (pessoa#9583)`)
             msg.channel.send(helpp)
         break;
         case 'say':
