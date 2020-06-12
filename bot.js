@@ -176,8 +176,10 @@ bot.on("message", async (msg) =>{
             msg.channel.send(args.slice(1).join(" "))
         break;
         case 'list':
-            if(!msg.author.id === "600800448198344881") return;
-            msg.author.send(`Todas as sabiaspalavras: ${sabio}`)
+            msg.author.send(`lista das sabias palavras`)
+            for(let listi = 0; i = sabio.length; i++){
+                msg.author.send(`${sabio[listi]}`)
+            }
             console.log(`lista das sabias palavras pedida`)
         break;
      }
