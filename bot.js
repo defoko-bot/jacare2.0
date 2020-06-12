@@ -6,7 +6,7 @@ const sabio = geral.sabio
 const cancelado = geral.cancelamentos
 bot.on("ready", () => {
     console.log('to vivo caraio aaaaaaaaa')
-    bot.user.setActivity(`existindo [padero]`)
+    bot.user.setActivity(`existindo [jacare help] [padero]`)
 });
 
 bot.on("message", async (msg) =>{
@@ -176,5 +176,5 @@ bot.on("message", async (msg) =>{
  
 bot.login(process.env.TOKEN);
 
-//aleluia terminei eu acho
-//-padero
+//saia
+//padero
