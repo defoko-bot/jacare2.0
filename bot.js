@@ -1,7 +1,7 @@
 const discord= require("discord.js")
 const bot = new discord.Client();
 const prefix = "jacare ";
-const geral = require('./geral.json/')
+const geral = require('./geral.json')
 const sabio = geral.sabio
 bot.on("ready", () => {
     console.log('to vivo caraio aaaaaaaaa')
